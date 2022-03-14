@@ -5,12 +5,13 @@ import java.util.Optional;
 
 import org.hibernate.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.vagnerurata.domain.Patient;
 import com.vagnerurata.repositories.PatientRepository;
 import com.vagnerurata.service.PatientService;
 
-
+@Service
 public class PatientServiceImpl implements PatientService{
 
 	@Autowired

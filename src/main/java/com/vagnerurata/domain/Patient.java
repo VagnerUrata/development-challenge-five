@@ -38,7 +38,7 @@ public class Patient implements Serializable {
 
 	private String address;
 
-	public PatientDTO toDto() {
+	public PatientDTO toDTO() {
 		var mapper = new ModelMapper();
 		return mapper.map(this, PatientDTO.class);
 	}

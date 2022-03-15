@@ -5,13 +5,16 @@ import java.util.Date;
 
 import org.modelmapper.ModelMapper;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.vagnerurata.domain.Patient;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class PatientDTO implements Serializable {
@@ -22,6 +25,7 @@ public class PatientDTO implements Serializable {
 
 	private String name;
 
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date birthDate;
 
 	private String email;

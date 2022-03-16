@@ -1,0 +1,20 @@
+{
+	"id": "846dcc0f-f2ff-4f50-88ee-59ee761453c8",
+	"values": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "local",
+			"value": "http://localhost:8080",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2022-03-16T15:10:06.924Z",
+	"_postman_exported_using": "Postman/9.14.14"
+}

@@ -11,6 +11,4 @@ import com.vagnerurata.domain.Patient;
 public interface PatientRepository extends JpaRepository<Patient, Integer> {
 
 	Optional<Patient> findByEmail(String email);
-
-
 }

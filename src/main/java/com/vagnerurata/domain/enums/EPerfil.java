@@ -2,7 +2,7 @@ package com.vagnerurata.domain.enums;
 
 public enum EPerfil {
 
-	ADMIN(0, "ROLE_ADMIN"), PACIENT(1, "ROLE_PACIENT");
+	ADMIN(0, "ROLE_ADMIN");
 
 	private Integer code;
 

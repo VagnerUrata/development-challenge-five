@@ -3,6 +3,8 @@ package com.vagnerurata.domain.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 import org.modelmapper.ModelMapper;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -23,13 +25,17 @@ public class PatientDTO implements Serializable {
 
 	private Integer id;
 
+	@NotNull(message = "Nome obrigatório.")
 	private String name;
 
-	@JsonFormat(pattern="dd-MM-yyyy")
+	@JsonFormat(pattern = "dd-MM-yyyy")
+	@NotNull(message = "Data de nascimento obrigatório.")
 	private Date birthDate;
 
+	@NotNull(message = "Email obrigatório.")
 	private String email;
 
+	@NotNull(message = "Endereço obrigatório.")
 	private String address;
 
 	public Patient toEntity() {

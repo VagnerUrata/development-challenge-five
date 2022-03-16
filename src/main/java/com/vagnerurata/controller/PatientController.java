@@ -3,6 +3,8 @@ package com.vagnerurata.controller;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -33,19 +35,25 @@ public class PatientController {
 	}
 
 	@GetMapping(value = "/{id}")
-	public ResponseEntity<PatientDTO> getOne(@PathVariable Integer id) {
+	public ResponseEntity<PatientDTO> getOneId(@PathVariable Integer id) {
 		Patient obj = this.patientService.findById(id);
 		return ResponseEntity.ok().body(obj.toDTO());
 	}
 
+	@GetMapping(value = "email/{email}")
+	public ResponseEntity<PatientDTO> getOneEmail(@PathVariable String email) {
+		Patient obj = this.patientService.findByEmail(email);
+		return ResponseEntity.ok().body(obj.toDTO());
+	}
+
 	@PostMapping
-	public ResponseEntity<PatientDTO> create(@RequestBody PatientDTO objDTO) {
+	public ResponseEntity<PatientDTO> create(@Valid @RequestBody PatientDTO objDTO) {
 		Patient obj = this.patientService.save(objDTO.toEntity());
 		return ResponseEntity.ok().body(obj.toDTO());
 	}
 
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<PatientDTO> update(@PathVariable Integer id, @RequestBody PatientDTO objDTO) {
+	public ResponseEntity<PatientDTO> update(@PathVariable Integer id, @Valid @RequestBody PatientDTO objDTO) {
 		Patient obj = this.patientService.update(id, objDTO.toEntity());
 		return ResponseEntity.ok().body(obj.toDTO());
 	}

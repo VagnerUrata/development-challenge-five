@@ -29,7 +29,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		this.jwtUtil = jwtUtil;
 	}
 
-	/* Caso de tentativa de autenticação */
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException {
@@ -45,7 +44,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		}
 	}
 
-	/* Caso a autenticação seja valida */
 	@Override
 	protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain,
 			Authentication authResult) throws IOException, ServletException {
@@ -56,7 +54,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		response.setHeader("Authorization", "Bearer " + token);
 	}
 
-	/* Caso a autenticação falhe */
 	@Override
 	protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException failed) throws IOException, ServletException {
@@ -64,7 +61,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		response.setStatus(401);
 		response.setContentType("application/json");
 		response.getWriter().append(Json());
-
 	}
 
 	private CharSequence Json() {

@@ -26,7 +26,6 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 		this.userDetailsService = userDetailsService;
 	}
 
-	/* captura o token da requisição */
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
